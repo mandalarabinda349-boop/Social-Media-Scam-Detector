@@ -355,6 +355,10 @@
             display: none;
         }
 
+        .progress-bar.active {
+            display: block;
+        }
+
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #7c3aed 0%, #2563eb 50%, #7c3aed 100%);
@@ -373,6 +377,10 @@
             display: none;
             margin-bottom: 24px;
             animation: scaleIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+        }
+
+        .results-container.active {
+            display: block;
         }
 
         @keyframes scaleIn {
@@ -501,6 +509,7 @@
             font-weight: 600;
             text-transform: uppercase;
             margin-top: 2px;
+            white-space: nowrap;
         }
 
         .indicator-message {
@@ -722,13 +731,13 @@
                 <p class="card-description">Click on an example to see how the detector works</p>
             </div>
             <div class="card-content">
-                <button class="example-btn" data-example="0">
+                <button class="example-btn">
                     URGENT! Your account will be suspended in 24 hours. Click here to verify: http://abc-bank.com
                 </button>
-                <button class="example-btn" data-example="1">
+                <button class="example-btn">
                     Congratulations! You've won 5000 rupees!! DM your bank details to claim your prize!
                 </button>
-                <button class="example-btn" data-example="2">
+                <button class="example-btn">
                     Hey! I'm giving away free netflix subsciption. Send 100 rs to double your money guaranteed! WhatsApp: 3478946237
                 </button>
             </div>
@@ -761,3 +770,331 @@
                             <p class="tip-title">Too Good to Be True</p>
                             <p class="tip-desc">Free money, guaranteed returns, instant prizes</p>
                         </div>
+                    </div>
+                    <div class="tip-item tip-amber">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <div>
+                            <p class="tip-title">Suspicious Links</p>
+                            <p class="tip-desc">Unfamiliar URLs, shortened links, misspelled domains</p>
+                        </div>
+                    </div>
+                    <div class="tip-item tip-rose">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        <div>
+                            <p class="tip-title">Personal Info Requests</p>
+                            <p class="tip-desc">Asking for passwords, bank details, or verification</p>
+                        </div>
+                    </div>
+                    <div class="tip-item tip-emerald">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                        <div>
+                            <p class="tip-title">Stay Safe</p>
+                            <p class="tip-desc">Never share passwords or send money to strangers</p>
+                        </div>
+                    </div>
+                    <div class="tip-item tip-teal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                        <div>
+                            <p class="tip-title">Verify Sources</p>
+                            <p class="tip-desc">Contact companies directly through official channels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer" role="contentinfo">
+            <p>This tool provides automated analysis only. Always use your best judgment and report suspicious content to the platform.</p>
+        </footer>
+    </div>
+
+    <div class="watermark">CyberTronz</div>
+
+    <script>
+        // Initialize particles on page load
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particle.style.animationDuration = (3 + Math.random() * 4) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Scam detection patterns and analysis
+        const scamPatterns = {
+            high: [
+                { pattern: /urgent|act\s*now|limited\s*time|expires?\s*soon|immediately/i, message: "Uses urgency tactics" },
+                { pattern: /click\s*(here|now)|tap\s*(here|now)/i, message: "Suspicious call-to-action" },
+                { pattern: /won|winner|prize|free\s*money|claim.*reward|giveaway|congratulations/i, message: "Too good to be true offers" },
+                { pattern: /verify.*account|confirm.*identity|suspended.*account|update.*password|reactivate/i, message: "Account verification scam" },
+                { pattern: /bitcoin|crypto|investment.*guarantee|double.*money|send.*btc|ethereum|dogecoin/i, message: "Cryptocurrency or investment scam" },
+                { pattern: /cash\s*app|venmo|paypal.*me|zelle|payment/i, message: "Payment app request" },
+                { pattern: /whatsapp|telegram|snapchat|contact.*me/i, message: "Requests to move off-platform" },
+                { pattern: /password|social\s*security|ssn|cvv|pin\s*code|bank\s*details/i, message: "Requests sensitive personal information" },
+                { pattern: /(immediate|instant)\s*(action|required|response)/i, message: "Immediate action required phrasing" },
+                { pattern: /help.*out|emergency|trouble|arrested/i, message: "Emotional manipulation with fake emergencies" }
+            ],
+            medium: [
+                { pattern: /\d{3,4}[-.\s]?\d{3,4}[-.\s]?\d{4}/, message: "Contains phone number" },
+                { pattern: /(http|https):\/\/[^\s]+/i, message: "Contains external link" },
+                { pattern: /dm\s*me|send.*message|inbox\s*me|contact\s*me/i, message: "Requests direct contact" },
+                { pattern: /100%|guarantee|risk[-\s]*free|no\s*risk/i, message: "Unrealistic guarantees" },
+                { pattern: /\$\d+|rupees|rs\.?\s*\d+/gi, message: "Money amounts mentioned" },
+                { pattern: /free\s*(gift|trip|vacation|iphone|money)/i, message: "Fake giveaways or promotions" },
+                { pattern: /reply\s*now|respond\s*asap|urgent.*reply/i, message: "Pressure to respond fast" }
+            ],
+            low: [
+                { pattern: /[A-Z]{5,}/g, message: "Excessive capitalization" },
+                { pattern: /!{2,}/g, message: "Multiple exclamation marks" },
+                { pattern: /@[a-zA-Z0-9_]+/g, message: "Multiple mentions or tags" },
+                { pattern: /\?{2,}/g, message: "Multiple question marks" }
+            ]
+        };
+
+        function analyzeText(text) {
+            if (!text || text.trim() === '') {
+                return null;
+            }
+
+            const indicators = [];
+            let score = 0;
+
+            // Check high-risk patterns
+            scamPatterns.high.forEach(({ pattern, message }) => {
+                if (pattern.test(text)) {
+                    indicators.push({ type: "high", message });
+                    score += 30;
+                }
+            });
+
+            // Check medium-risk patterns
+            scamPatterns.medium.forEach(({ pattern, message }) => {
+                if (pattern.test(text)) {
+                    indicators.push({ type: "medium", message });
+                    score += 15;
+                }
+            });
+
+            // Check low-risk patterns
+            scamPatterns.low.forEach(({ pattern, message }) => {
+                if (pattern.test(text)) {
+                    indicators.push({ type: "low", message });
+                    score += 5;
+                }
+            });
+
+            // Determine risk level
+            let riskLevel;
+            if (score >= 50) {
+                riskLevel = "high";
+            } else if (score >= 25) {
+                riskLevel = "medium";
+            } else if (score > 0) {
+                riskLevel = "low";
+            } else {
+                riskLevel = "safe";
+            }
+
+            return { riskLevel, score, indicators };
+        }
+
+        function getRiskData(level) {
+            const data = {
+                high: {
+                    title: "High Risk - Likely Scam",
+                    iconPath: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path>`,
+                    class: "high-risk"
+                },
+                medium: {
+                    title: "Medium Risk - Be Cautious",
+                    iconPath: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path>`,
+                    class: "medium-risk"
+                },
+                low: {
+                    title: "Low Risk - Minor Concerns",
+                    iconPath: `<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path>`,
+                    class: "low-risk"
+                },
+                safe: {
+                    title: "Safe - No Red Flags Detected",
+                    iconPath: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path>`,
+                    class: "safe"
+                }
+            };
+            return data[level];
+        }
+
+        function animateCounter(element, target, duration = 600) {
+            let current = 0;
+            const increment = target / (duration / 20);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 20);
+        }
+
+        function displayResults(result) {
+            const resultsContainer = document.getElementById('results');
+            const riskData = getRiskData(result.riskLevel);
+
+            let html = `
+                <div class="result-card ${riskData.class}">
+                    <div class="result-header">
+                        <svg class="result-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            ${riskData.iconPath}
+                        </svg>
+                        <div>
+                            <div class="result-title">${riskData.title}</div>
+                            <div class="result-score">Risk Score: <span class="score-counter">0</span>/100</div>
+                        </div>
+                    </div>
+            `;
+
+            if (result.indicators.length > 0) {
+                html += `
+                    <div class="indicators-section">
+                        <p class="indicators-label">Detected Indicators:</p>
+                        <div class="indicators-list">
+                `;
+
+                result.indicators.forEach((indicator, index) => {
+                    html += `
+                        <div class="indicator-item ${indicator.type}" style="animation-delay: ${0.5 + index * 0.1}s">
+                            <span class="indicator-type">${indicator.type}</span>
+                            <span class="indicator-message">${indicator.message}</span>
+                        </div>
+                    `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+
+            if (result.riskLevel === "safe") {
+                html += `
+                    <p class="safe-message">
+                        No obvious scam indicators detected. However, always use caution when sharing personal information online.
+                    </p>
+                `;
+            }
+
+            html += `</div>`;
+
+            resultsContainer.innerHTML = html;
+            resultsContainer.classList.add('active');
+
+            // Animate the score counter
+            const scoreElement = resultsContainer.querySelector('.score-counter');
+            setTimeout(() => {
+                animateCounter(scoreElement, result.score);
+            }, 300);
+
+            // Scroll to results
+            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Event handlers
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+
+            const inputText = document.getElementById('inputText');
+            const analyzeBtn = document.getElementById('analyzeBtn');
+            const clearBtn = document.getElementById('clearBtn');
+            const progressBar = document.getElementById('progressBar');
+            const resultsContainer = document.getElementById('results');
+            const exampleBtns = document.querySelectorAll('.example-btn');
+
+            // Analyze button click
+            analyzeBtn.addEventListener('click', () => {
+                const text = inputText.value.trim();
+                
+                if (!text) {
+                    alert('Please enter some text to analyze!');
+                    inputText.focus();
+                    return;
+                }
+
+                // Show progress and disable button
+                analyzeBtn.disabled = true;
+                analyzeBtn.textContent = 'Analyzing...';
+                progressBar.classList.add('active');
+                resultsContainer.classList.remove('active');
+
+                // Simulate analysis delay for better UX
+                setTimeout(() => {
+                    const result = analyzeText(text);
+                    
+                    if (result) {
+                        displayResults(result);
+                    }
+
+                    // Hide progress and re-enable button
+                    progressBar.classList.remove('active');
+                    analyzeBtn.disabled = false;
+                    analyzeBtn.textContent = 'Analyze for Scams';
+                }, 1500);
+            });
+
+            // Clear button click
+            clearBtn.addEventListener('click', () => {
+                inputText.value = '';
+                resultsContainer.classList.remove('active');
+                resultsContainer.innerHTML = '';
+                progressBar.classList.remove('active');
+                analyzeBtn.disabled = false;
+                analyzeBtn.textContent = 'Analyze for Scams';
+                inputText.focus();
+            });
+
+            // Example buttons click
+            exampleBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    inputText.value = btn.textContent.trim();
+                    resultsContainer.classList.remove('active');
+                    resultsContainer.innerHTML = '';
+                    inputText.focus();
+                    inputText.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            });
+
+            // Keyboard shortcut: Ctrl/Cmd + Enter
+            inputText.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                    e.preventDefault();
+                    analyzeBtn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
